@@ -1,7 +1,9 @@
 import datetime
 
+username = input("What is your name, oh esteemed user of this script? ")
+
 def hello():
-    print("Hello World!")
+    print("Hello " + username + "!")
 
 def debuglogorsmth():
     current_time = datetime.datetime.now()
