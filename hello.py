@@ -2,8 +2,12 @@ import datetime
 import schedule
 import time
 import subprocess
+import os
+import sys
+
 
 username = input("What is your name, oh esteemed user of this script? ")
+
 
 # Here we have a few types of variables, e.g. strings, integers, booleans and floats.
 somestring = "hello" # string (obvs)
@@ -49,14 +53,19 @@ def debuglogorsmth():
         file.write("hello.py was run at: " + formatted_time + "\n")
 
 if __name__ == '__main__':
+    filename = "AGB.txt"
     debuglogorsmth()
     try:
-        hello()
-        printvars()
-        somerandomcalculatororsomethingidek()
-        schedule.every().day.at("03:00").do(run_hello) # Call the run_hello function every night at 3:00
-        while True:
-            schedule.run_pending()
-            time.sleep(1)
+        if not os.path.isfile(filename):
+            print(f"Error: {filename} WAS DELETED, HOW DARE THOU?? ")
+            sys.exit(1)
+        else:
+            hello()
+            printvars()
+            somerandomcalculatororsomethingidek()
+            schedule.every().day.at("03:00").do(run_hello) # Call the run_hello function every night at 3:00
+            while True:
+                schedule.run_pending()
+                time.sleep(1)
     except Exception as e:
         print(e)
