@@ -40,7 +40,7 @@ def debuglogorsmth():
     current_time = datetime.datetime.now()
     formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
     with open("Logs/logs.txt", "a") as file:
-        file.write(formatted_time + "\n")
+        file.write("hello.py was run at: " + formatted_time + "\n")
 
 if __name__ == '__main__':
     debuglogorsmth()
