@@ -1,4 +1,7 @@
 import datetime
+import schedule
+import time
+import subprocess
 
 username = input("What is your name, oh esteemed user of this script? ")
 
@@ -7,6 +10,9 @@ somestring = "hello" # string (obvs)
 someint = 22 # integer (obvs)
 somefloat = 22.2 # float (obvs)
 someboolean = True # boolean (even more obv)
+
+def run_hello():
+    subprocess.run(["python", "hello.py"])
 
 
 def printvars():
@@ -48,5 +54,9 @@ if __name__ == '__main__':
         hello()
         printvars()
         somerandomcalculatororsomethingidek()
+        schedule.every().day.at("03:00").do(run_hello)
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
     except Exception as e:
         print(e)
