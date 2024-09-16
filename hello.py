@@ -12,7 +12,7 @@ somefloat = 22.2 # float (obvs)
 someboolean = True # boolean (even more obv)
 
 def run_hello():
-    subprocess.run(["python", "hello.py"])
+    subprocess.run(["python", "hello.py"]) # Function which will run "hello.py" (this file) in a subprocess
 
 
 def printvars():
@@ -54,7 +54,7 @@ if __name__ == '__main__':
         hello()
         printvars()
         somerandomcalculatororsomethingidek()
-        schedule.every().day.at("03:00").do(run_hello)
+        schedule.every().day.at("03:00").do(run_hello) # Call the run_hello function every night at 3:00
         while True:
             schedule.run_pending()
             time.sleep(1)
